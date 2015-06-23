@@ -24,4 +24,11 @@ So that I can receive help from others
     expect(page).to have_content('Question added!')
     expect(page).to have_content(question_title)
   end
+
+  scenario 'visits index and submits invalid info' do
+    visit questions_path
+    click_button 'Submit'
+
+    expect(page).to have_content('is too short')
+  end
 end

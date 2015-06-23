@@ -1,2 +1,20 @@
 <h1> <%= @question.title %> </h1>
 <h3> <%= @question.description %> </h3>
+
+<h1>Answers</h1>
+<ul>
+<% if !@answers.empty? %>
+  <% @answers.each do |answer| %>
+    <li><%= answer.description %></li>
+  <% end %>
+</ul>
+<% end %>
+  <h1>Answer Question</h1>
+
+  <%= form_for [@question, @answer] do |f| %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.submit 'Submit' %>
+  <% end %>
